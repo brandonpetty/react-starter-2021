@@ -1,6 +1,9 @@
 import React, { FC, useCallback, useEffect, useMemo, useState } from "react";
+import { PageProps } from "gatsby";
+import styled from "styled-components";
 
 type UserListProps = {
+  props: any;
   title: string;
 };
 
@@ -9,7 +12,11 @@ type User = {
   lastName: string;
 };
 
-const Index: FC<UserListProps> = ({ title }) => {
+const Styles = styled.div`
+  display: flex;
+`;
+
+const Index: FC<UserListProps> = ({ title, props: PageProps }) => {
   const [isVisible, setIsVisible] = useState(true);
   const [users, setUsers] = useState<User[]>([]);
 
@@ -52,7 +59,7 @@ const Index: FC<UserListProps> = ({ title }) => {
   }, [onKeyDown]);
 
   return (
-    <div>
+    <Styles>
       <h3>{title}</h3>
       <button onClick={toggleVisibility}>Toggle visibility</button>
       {isVisible && (
@@ -62,7 +69,7 @@ const Index: FC<UserListProps> = ({ title }) => {
           ))}
         </ul>
       )}
-    </div>
+    </Styles>
   );
 };
 

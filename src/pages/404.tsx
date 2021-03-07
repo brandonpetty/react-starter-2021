@@ -1,5 +1,5 @@
-import { PageProps } from "gatsby"
 import React, { FC } from "react";
+import { PageProps } from "gatsby";
 
 type NotFoundProps = {
   title?: string; //optional
